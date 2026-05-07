@@ -1,11 +1,11 @@
 import time
 import os
 
-STOP_FILE      = r"data\stop.flag"
-RESULT_FILE    = r"data\result.txt"
-NEW_IMAGE_FLAG = r"data\new_image.flag"
-LOG_FILE       = r"data\worker_log.txt"
-IMAGES_FOLDER  = r"incoming"
+STOP_FILE      = r"E:\files\my projects\car_damage_system\data\stop.flag"
+RESULT_FILE    = r"E:\files\my projects\car_damage_system\data\result.txt"
+NEW_IMAGE_FLAG = r"E:\files\my projects\car_damage_system\data\new_image.flag"
+LOG_FILE       = r"E:\files\my projects\car_damage_system\data\worker_log.txt"
+IMAGES_FOLDER  = r"E:\files\my projects\car_damage_system\incoming"
 SERVER_URL     = "http://127.0.0.1:5000/predict"
 
 # check file writing
@@ -92,6 +92,7 @@ while not os.path.exists(STOP_FILE):
             else:
                 # detect front and rear damage
                 for place in ['rear', 'front']:
+                    log(f"{images}")
                     image_path = [imgpth for imgpth in images if place in imgpth][0]
                     log(f"Processing: {os.path.basename(image_path)}")
 

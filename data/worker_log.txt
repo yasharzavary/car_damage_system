@@ -1,0 +1,197 @@
+=== Worker started ===
+[02:01:28] Step 1 OK: Logging works.
+[02:01:28] Step 2: Importing requests...
+[02:01:28] Step 2 OK: requests imported.
+[02:01:28] Step 3: Importing glob...
+[02:01:28] Step 3 OK: glob imported.
+[02:01:28] Step 4: Checking paths...
+[02:01:28]   STOP_FILE exists:      False
+[02:01:28]   NEW_IMAGE_FLAG exists: False
+[02:01:28]   IMAGES_FOLDER exists:  True
+[02:01:28] Step 4 OK: Folders ready.
+[02:01:28] Step 5: Testing server connection...
+[02:01:28] Step 5 OK: Server reachable. Status: 200
+[02:01:28] Step 6: Entering main loop...
+[02:01:29] Loop alive (iteration 4260). Flag exists: False
+[02:01:29] Loop alive (iteration 660). Flag exists: False
+[02:01:29] Loop alive (iteration 340). Flag exists: False
+[02:01:31] Loop alive (iteration 20). Flag exists: False
+[02:01:31] FLAG DETECTED at iteration 355!
+[02:01:31] Flag removed. Looking for images...
+[02:01:31] Images found: 2
+[02:01:31] ['E:\\files\\my projects\\car_damage_system\\incoming\\front.png', 'E:\\files\\my projects\\car_damage_system\\incoming\\rear.png']
+[02:01:31] Processing: rear.png
+[02:01:31] Loop alive (iteration 4280). Flag exists: False
+[02:01:31] Result: Front Breakage
+[02:01:31] Result written OK.
+[02:01:31] ['E:\\files\\my projects\\car_damage_system\\incoming\\front.png', 'E:\\files\\my projects\\car_damage_system\\incoming\\rear.png']
+[02:01:31] Processing: front.png
+[02:01:31] Result: Front Breakage
+[02:01:31] Result written OK.
+[02:01:31] Loop alive (iteration 680). Flag exists: False
+[02:01:31] Loop alive (iteration 360). Flag exists: False
+[02:01:33] Loop alive (iteration 40). Flag exists: False
+[02:01:33] Loop alive (iteration 4300). Flag exists: False
+[02:01:33] Loop alive (iteration 700). Flag exists: False
+[02:01:34] Loop alive (iteration 380). Flag exists: False
+[02:01:35] Loop alive (iteration 60). Flag exists: False
+[02:01:35] Loop alive (iteration 4320). Flag exists: False
+[02:01:35] Loop alive (iteration 720). Flag exists: False
+[02:01:36] Loop alive (iteration 400). Flag exists: False
+[02:01:37] Loop alive (iteration 80). Flag exists: False
+[02:01:37] Loop alive (iteration 4340). Flag exists: False
+[02:01:38] Loop alive (iteration 740). Flag exists: False
+[02:01:38] Loop alive (iteration 420). Flag exists: False
+[02:01:39] Loop alive (iteration 100). Flag exists: False
+[02:01:40] Loop alive (iteration 4360). Flag exists: False
+[02:01:40] Loop alive (iteration 760). Flag exists: False
+[02:01:40] Loop alive (iteration 440). Flag exists: False
+[02:01:42] Loop alive (iteration 120). Flag exists: False
+[02:01:42] Loop alive (iteration 4380). Flag exists: False
+[02:01:42] Loop alive (iteration 780). Flag exists: False
+[02:01:42] Loop alive (iteration 460). Flag exists: False
+[02:01:44] Loop alive (iteration 140). Flag exists: False
+[02:01:44] Loop alive (iteration 4400). Flag exists: False
+[02:01:44] Loop alive (iteration 800). Flag exists: False
+[02:01:45] Loop alive (iteration 480). Flag exists: False
+[02:01:46] Loop alive (iteration 160). Flag exists: False
+[02:01:46] Loop alive (iteration 4420). Flag exists: False
+[02:01:46] Loop alive (iteration 820). Flag exists: False
+[02:01:47] Loop alive (iteration 500). Flag exists: False
+[02:01:48] Loop alive (iteration 180). Flag exists: False
+[02:01:48] Loop alive (iteration 4440). Flag exists: False
+[02:01:49] Loop alive (iteration 840). Flag exists: False
+[02:01:49] Loop alive (iteration 520). Flag exists: False
+[02:01:50] Loop alive (iteration 200). Flag exists: False
+[02:01:51] Loop alive (iteration 4460). Flag exists: False
+[02:01:51] Loop alive (iteration 860). Flag exists: False
+[02:01:51] Loop alive (iteration 540). Flag exists: False
+[02:01:53] Loop alive (iteration 220). Flag exists: False
+[02:01:53] Loop alive (iteration 4480). Flag exists: False
+[02:01:53] Loop alive (iteration 880). Flag exists: False
+[02:01:53] Loop alive (iteration 560). Flag exists: False
+[02:01:55] Loop alive (iteration 240). Flag exists: False
+[02:01:55] Loop alive (iteration 4500). Flag exists: False
+[02:01:55] Loop alive (iteration 900). Flag exists: False
+[02:01:56] Loop alive (iteration 580). Flag exists: False
+[02:01:57] Loop alive (iteration 260). Flag exists: False
+[02:01:57] Loop alive (iteration 4520). Flag exists: False
+[02:01:57] Loop alive (iteration 920). Flag exists: False
+[02:01:58] Loop alive (iteration 600). Flag exists: False
+[02:01:59] Loop alive (iteration 280). Flag exists: False
+[02:01:59] Loop alive (iteration 4540). Flag exists: False
+[02:02:00] Loop alive (iteration 940). Flag exists: False
+[02:02:00] Loop alive (iteration 620). Flag exists: False
+[02:02:01] Loop alive (iteration 300). Flag exists: False
+[02:02:01] Loop alive (iteration 4560). Flag exists: False
+[02:02:02] Loop alive (iteration 960). Flag exists: False
+[02:02:02] Loop alive (iteration 640). Flag exists: False
+[02:02:03] Loop alive (iteration 320). Flag exists: False
+[02:02:04] Loop alive (iteration 4580). Flag exists: False
+[02:02:04] Loop alive (iteration 980). Flag exists: False
+[02:02:04] Loop alive (iteration 660). Flag exists: False
+[02:02:06] Loop alive (iteration 340). Flag exists: False
+[02:02:06] Loop alive (iteration 4600). Flag exists: False
+[02:02:06] Loop alive (iteration 1000). Flag exists: False
+[02:02:06] Loop alive (iteration 680). Flag exists: False
+[02:02:08] Loop alive (iteration 360). Flag exists: False
+[02:02:08] Loop alive (iteration 4620). Flag exists: False
+[02:02:08] Loop alive (iteration 1020). Flag exists: False
+[02:02:09] Loop alive (iteration 700). Flag exists: False
+[02:02:10] Loop alive (iteration 380). Flag exists: False
+[02:02:10] Loop alive (iteration 4640). Flag exists: False
+[02:02:10] Loop alive (iteration 1040). Flag exists: False
+[02:02:11] Loop alive (iteration 720). Flag exists: False
+[02:02:12] Loop alive (iteration 400). Flag exists: False
+[02:02:12] Loop alive (iteration 4660). Flag exists: False
+[02:02:13] Loop alive (iteration 1060). Flag exists: False
+[02:02:13] Loop alive (iteration 740). Flag exists: False
+[02:02:14] Loop alive (iteration 420). Flag exists: False
+[02:02:15] Loop alive (iteration 4680). Flag exists: False
+[02:02:15] Loop alive (iteration 1080). Flag exists: False
+[02:02:15] Loop alive (iteration 760). Flag exists: False
+[02:02:17] Loop alive (iteration 440). Flag exists: False
+[02:02:17] Loop alive (iteration 4700). Flag exists: False
+[02:02:17] Loop alive (iteration 1100). Flag exists: False
+[02:02:17] Loop alive (iteration 780). Flag exists: False
+[02:02:19] Loop alive (iteration 460). Flag exists: False
+[02:02:19] Loop alive (iteration 4720). Flag exists: False
+[02:02:19] Loop alive (iteration 1120). Flag exists: False
+[02:02:20] Loop alive (iteration 800). Flag exists: False
+[02:02:21] Loop alive (iteration 480). Flag exists: False
+[02:02:21] Loop alive (iteration 4740). Flag exists: False
+[02:02:21] Loop alive (iteration 1140). Flag exists: False
+[02:02:22] Loop alive (iteration 820). Flag exists: False
+[02:02:23] Loop alive (iteration 500). Flag exists: False
+[02:02:23] Loop alive (iteration 4760). Flag exists: False
+[02:02:24] Loop alive (iteration 1160). Flag exists: False
+[02:02:24] Loop alive (iteration 840). Flag exists: False
+[02:02:25] Loop alive (iteration 520). Flag exists: False
+[02:02:26] Loop alive (iteration 4780). Flag exists: False
+[02:02:26] Loop alive (iteration 1180). Flag exists: False
+[02:02:26] Loop alive (iteration 860). Flag exists: False
+[02:02:27] Loop alive (iteration 540). Flag exists: False
+[02:02:28] Loop alive (iteration 4800). Flag exists: False
+[02:02:28] Loop alive (iteration 1200). Flag exists: False
+[02:02:28] Loop alive (iteration 880). Flag exists: False
+[02:02:30] Loop alive (iteration 560). Flag exists: False
+[02:02:30] Loop alive (iteration 4820). Flag exists: False
+[02:02:30] Loop alive (iteration 1220). Flag exists: False
+[02:02:30] Loop alive (iteration 900). Flag exists: False
+[02:02:32] Loop alive (iteration 580). Flag exists: False
+[02:02:32] Loop alive (iteration 4840). Flag exists: False
+[02:02:32] Loop alive (iteration 1240). Flag exists: False
+[02:02:33] Loop alive (iteration 920). Flag exists: False
+[02:02:34] Loop alive (iteration 600). Flag exists: False
+[02:02:34] Loop alive (iteration 4860). Flag exists: False
+[02:02:34] Loop alive (iteration 1260). Flag exists: False
+[02:02:35] Loop alive (iteration 940). Flag exists: False
+[02:02:36] Loop alive (iteration 620). Flag exists: False
+[02:02:36] Loop alive (iteration 4880). Flag exists: False
+[02:02:37] Loop alive (iteration 1280). Flag exists: False
+[02:02:37] Loop alive (iteration 960). Flag exists: False
+[02:02:38] Loop alive (iteration 640). Flag exists: False
+[02:02:39] Loop alive (iteration 4900). Flag exists: False
+[02:02:39] Loop alive (iteration 1300). Flag exists: False
+[02:02:39] Loop alive (iteration 980). Flag exists: False
+[02:02:41] Loop alive (iteration 660). Flag exists: False
+[02:02:41] Loop alive (iteration 4920). Flag exists: False
+[02:02:41] Loop alive (iteration 1320). Flag exists: False
+[02:02:41] Loop alive (iteration 1000). Flag exists: False
+[02:02:43] Loop alive (iteration 680). Flag exists: False
+[02:02:43] Loop alive (iteration 4940). Flag exists: False
+[02:02:43] Loop alive (iteration 1340). Flag exists: False
+[02:02:44] Loop alive (iteration 1020). Flag exists: False
+[02:02:45] Loop alive (iteration 700). Flag exists: False
+[02:02:45] Loop alive (iteration 4960). Flag exists: False
+[02:02:45] Loop alive (iteration 1360). Flag exists: False
+[02:02:46] Loop alive (iteration 1040). Flag exists: False
+[02:02:47] Loop alive (iteration 720). Flag exists: False
+[02:02:47] Loop alive (iteration 4980). Flag exists: False
+[02:02:48] Loop alive (iteration 1380). Flag exists: False
+[02:02:48] Loop alive (iteration 1060). Flag exists: False
+[02:02:49] Loop alive (iteration 740). Flag exists: False
+[02:02:50] Loop alive (iteration 5000). Flag exists: False
+[02:02:50] Loop alive (iteration 1400). Flag exists: False
+[02:02:50] Loop alive (iteration 1080). Flag exists: False
+[02:02:51] Loop alive (iteration 760). Flag exists: False
+[02:02:52] Loop alive (iteration 5020). Flag exists: False
+[02:02:52] Loop alive (iteration 1420). Flag exists: False
+[02:02:52] Loop alive (iteration 1100). Flag exists: False
+[02:02:54] Loop alive (iteration 780). Flag exists: False
+[02:02:54] Loop alive (iteration 5040). Flag exists: False
+[02:02:54] Loop alive (iteration 1440). Flag exists: False
+[02:02:55] Loop alive (iteration 1120). Flag exists: False
+[02:02:56] Loop alive (iteration 800). Flag exists: False
+[02:02:56] Loop alive (iteration 5060). Flag exists: False
+[02:02:56] Loop alive (iteration 1460). Flag exists: False
+[02:02:57] Loop alive (iteration 1140). Flag exists: False
+[02:02:58] Loop alive (iteration 820). Flag exists: False
+[02:02:58] Loop alive (iteration 5080). Flag exists: False
+[02:02:58] Loop alive (iteration 1480). Flag exists: False
+[02:02:59] Loop alive (iteration 1160). Flag exists: False
+[02:03:00] Loop alive (iteration 840). Flag exists: False
+[02:03:00] Loop alive (iteration 5100). Flag exists: False
+[02:03:01] Loop alive (iteration 1500). Flag exists: False
+[02:03:01] Loop alive (iteration 1180). Flag exists: False
+[02:03:02] Loop alive (iteration 860). Flag exists: False
