@@ -102,7 +102,7 @@ while not os.path.exists(STOP_FILE):
                             timeout=5
                         )
                     result = response.json()["result"]
-                    log(f"{palce} Result: {result}")
+                    log(f"Result: {result}")
 
                     with open(RESULT_FILE, "w") as f:
                         f.write(result)
