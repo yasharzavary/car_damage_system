@@ -1,0 +1,63 @@
+# =========================
+# Proteus temporary files
+# =========================
+*.pdsbak
+*.pdsprj.*
+*.dbk
+*.bak
+*.tmp
+*.temp
+
+# Simulation files
+*.sdf
+*.suo
+*.tlog
+*.lst
+*.map
+*.o
+*.obj
+
+# VSM simulation cache
+VSM Studio/
+Debug/
+Release/
+
+# Auto generated outputs
+*.hex
+*.elf
+*.bin
+*.eep
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Proteus autosave
+*.dsn.bak
+
+# Virtual environments
+venv/
+.env/
+
+# CMake / build folders
+build/
+cmake-build-*/
+
+# Qt
+*.pro.user
+
+# project backups
+Project Backups/
