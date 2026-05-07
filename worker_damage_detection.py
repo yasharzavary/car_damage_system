@@ -92,8 +92,8 @@ while not os.path.exists(STOP_FILE):
             else:
                 # detect front and rear damage
                 for place in ['rear', 'front']:
-                    log(f"{images}")
                     image_path = [imgpth for imgpth in images if place in imgpth][0]
+                    log(f'{image_path}')
                     log(f"Processing: {os.path.basename(image_path)}")
 
                     with open(image_path, "rb") as f:
