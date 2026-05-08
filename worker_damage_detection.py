@@ -5,7 +5,8 @@ STOP_FILE      = r"E:\files\my projects\car_damage_system\data\stop.flag"
 RESULT_FILE    = r"E:\files\my projects\car_damage_system\data\result.txt"
 NEW_IMAGE_FLAG = r"E:\files\my projects\car_damage_system\data\new_image.flag"
 LOG_FILE       = r"E:\files\my projects\car_damage_system\data\worker_log.txt"
-IMAGES_FOLDER  = r"E:\files\my projects\car_damage_system\incoming"
+IMAGES_FOLDER  = r"E:\files\my projects\car_damage_system\data\images"
+PLATE_NUMBER_RESULT = r"E:\files\my projects\car_damage_system\data\detect_car_worker_plate_number.txt"
 SERVER_URL     = "http://127.0.0.1:5000/predict"
 
 # check file writing
@@ -15,6 +16,10 @@ try:
 except Exception as e:
     import sys
     sys.exit(f"FATAL: Cannot write log: {e}")
+
+with open(PLATE_NUMBER_RESULT, 'r') as f:
+    result = f.read().strip()
+    IMAGES_FOLDER = os.path.join(IMAGES_FOLDER, result)
 
 # set logs for reading new images
 def log(msg):
@@ -47,7 +52,6 @@ log(f"  STOP_FILE exists:      {os.path.exists(STOP_FILE)}")
 log(f"  NEW_IMAGE_FLAG exists: {os.path.exists(NEW_IMAGE_FLAG)}")
 log(f"  IMAGES_FOLDER exists:  {os.path.exists(IMAGES_FOLDER)}")
 
-os.makedirs(IMAGES_FOLDER, exist_ok=True)
 log("Step 4 OK: Folders ready.")
 
 # check server
