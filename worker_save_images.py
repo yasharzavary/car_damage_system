@@ -96,6 +96,10 @@ while not os.path.exists(STOP_FILE):
                 for image in images:
                     log(f'{image}')
 
+                with open(RESULT_FILE, "w") as f:
+                    f.write("images moved")                    
+
+
         # error handlers
         except requests.exceptions.ConnectionError:
             log("ERROR: Inference server not running!")
