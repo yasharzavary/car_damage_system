@@ -1,0 +1,111 @@
+import time
+import os
+
+STOP_FILE      = r"E:\files\my projects\car_damage_system\data\stop.flag"
+RESULT_FILE    = r"E:\files\my projects\car_damage_system\data\save_image_result.txt"
+NEW_IMAGE_FLAG = r"E:\files\my projects\car_damage_system\data\new_image_to_save.flag"
+LOG_FILE       = r"E:\files\my projects\car_damage_system\data\worker_save_image_log.txt"
+IMAGES_FOLDER  = r"E:\files\my projects\car_damage_system\incoming"
+DESTINATION_FOLDER = r"E:\files\my projects\car_damage_system\data\images"
+SERVER_URL     = "http://127.0.0.1:5000/predict"
+
+# check file writing
+try:
+    with open(LOG_FILE, "w") as f:
+        f.write("=== Image Save Worker started ===\n")
+except Exception as e:
+    import sys
+    sys.exit(f"FATAL: Cannot write log: {e}")
+
+# set logs for reading new images
+def log(msg):
+    timestamp = time.strftime("%H:%M:%S")
+    line = f"[{timestamp}] {msg}"
+    print(line)
+    with open(LOG_FILE, "a") as f:
+        f.write(line + "\n")
+
+log("Step 1 OK: Logging works.")
+
+# check requests
+log("Step 2: Importing requests...")
+try:
+    import requests
+    log("Step 2 OK: requests imported.")
+except Exception as e:
+    log(f"Step 2 FAILED: {e}")
+
+log("Step 3: Importing glob...")
+try:
+    import glob
+    log("Step 3 OK: glob imported.")
+except Exception as e:
+    log(f"Step 3 FAILED: {e}")
+
+# check file/folder paths
+log(f"Step 4: Checking paths...")
+log(f"  STOP_FILE exists:      {os.path.exists(STOP_FILE)}")
+log(f"  NEW_IMAGE_FLAG exists: {os.path.exists(NEW_IMAGE_FLAG)}")
+log(f"  IMAGES_FOLDER exists:  {os.path.exists(IMAGES_FOLDER)}")
+
+os.makedirs(IMAGES_FOLDER, exist_ok=True)
+log("Step 4 OK: Folders ready.")
+
+# check server
+log("Step 5: Testing server connection...")
+try:
+    import requests as req
+    r = req.get("http://127.0.0.1:5000/", timeout=3)
+    log(f"Step 5 OK: Server reachable. Status: {r.status_code}")
+except Exception as e:
+    log(f"Step 5 FAILED: Server not reachable: {e}")
+    log("WARNING: Will keep trying in main loop...")
+
+# main loop of worker
+log("Step 6: Entering main loop...")
+loop_count = 0
+
+while not os.path.exists(STOP_FILE):
+    loop_count += 1
+
+    # Log every 20 iterations so we know loop is alive
+    if loop_count % 20 == 0:
+        log(f"Loop alive (iteration {loop_count}). "
+            f"Flag exists: {os.path.exists(NEW_IMAGE_FLAG)}")
+
+    if os.path.exists(NEW_IMAGE_FLAG):
+        log(f"FLAG DETECTED at iteration {loop_count}!")
+        os.remove(NEW_IMAGE_FLAG) # if we detect new image, remove before starting
+        log("Flag removed. Looking for images...")
+
+        try:
+            images = []
+            for t in ["*.png", "*.jpg", "*.jpeg"]:
+                images += glob.glob(os.path.join(IMAGES_FOLDER, t))
+
+            log(f"Images found: {len(images)}")
+
+            if not images:
+                log(f"ERROR: No images in {IMAGES_FOLDER}")
+                log("Please put images in the incoming folder!")
+                with open(RESULT_FILE, "w") as f:
+                    f.write("No Image Found")
+            else:
+                # detect front and rear damage
+                log('start moving new images from source to destination')
+                for image in images:
+                    log(f'{image}')
+
+        # error handlers
+        except requests.exceptions.ConnectionError:
+            log("ERROR: Inference server not running!")
+            with open(RESULT_FILE, "w") as f:
+                f.write("Server Error")
+        except Exception as e:
+            log(f"ERROR: {type(e).__name__}: {e}")
+            with open(RESULT_FILE, "w") as f:
+                f.write("Error")
+
+    time.sleep(0.1)
+
+log("Stop flag detected. Worker exiting cleanly.")
