@@ -1,5 +1,6 @@
 import time
 import os
+import re
 
 STOP_FILE      = r"E:\files\my projects\car_damage_system\data\stop.flag"
 RESULT_FILE    = r"E:\files\my projects\car_damage_system\data\save_image_result.txt"
@@ -93,8 +94,19 @@ while not os.path.exists(STOP_FILE):
             else:
                 # detect front and rear damage
                 log('start moving new images from source to destination')
+                car_license_numebr = '1' # TODO: will replace with plate detection
+                pattern = r'([^\\/]+)\.(png|jpg)'
+                log(f'{images}')
                 for image in images:
-                    log(f'{image}')
+                    log(f'saving {image}')
+                    matches = re.findall(pattern, image)
+                    print(matches)
+                    image = matches[0][0] +'.'+ matches[0][1] 
+                    source_path = os.path.join(IMAGES_FOLDER, image)
+                    destination_path = os.path.join(DESTINATION_FOLDER, image)
+                    os.rename(source_path, destination_path)
+
+                    log(f'{image} saved!')
 
                 with open(RESULT_FILE, "w") as f:
                     f.write("images moved")                    
