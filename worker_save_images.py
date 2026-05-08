@@ -8,7 +8,6 @@ NEW_IMAGE_FLAG = r"E:\files\my projects\car_damage_system\data\new_image_to_save
 LOG_FILE       = r"E:\files\my projects\car_damage_system\data\worker_save_image_log.txt"
 IMAGES_FOLDER  = r"E:\files\my projects\car_damage_system\incoming"
 DESTINATION_FOLDER = r"E:\files\my projects\car_damage_system\data\images"
-SERVER_URL     = "http://127.0.0.1:5000/predict"
 
 # check file writing
 try:
@@ -28,42 +27,25 @@ def log(msg):
 
 log("Step 1 OK: Logging works.")
 
-# check requests
-log("Step 2: Importing requests...")
+log("Step 2: Importing glob...")
 try:
-    import requests
-    log("Step 2 OK: requests imported.")
+    import glob
+    log("Step 2 OK: glob imported.")
 except Exception as e:
     log(f"Step 2 FAILED: {e}")
 
-log("Step 3: Importing glob...")
-try:
-    import glob
-    log("Step 3 OK: glob imported.")
-except Exception as e:
-    log(f"Step 3 FAILED: {e}")
-
 # check file/folder paths
-log(f"Step 4: Checking paths...")
+log(f"Step 3: Checking paths...")
 log(f"  STOP_FILE exists:      {os.path.exists(STOP_FILE)}")
 log(f"  NEW_IMAGE_FLAG exists: {os.path.exists(NEW_IMAGE_FLAG)}")
 log(f"  IMAGES_FOLDER exists:  {os.path.exists(IMAGES_FOLDER)}")
 
 os.makedirs(IMAGES_FOLDER, exist_ok=True)
-log("Step 4 OK: Folders ready.")
+log("Step 3 OK: Folders ready.")
 
-# check server
-log("Step 5: Testing server connection...")
-try:
-    import requests as req
-    r = req.get("http://127.0.0.1:5000/", timeout=3)
-    log(f"Step 5 OK: Server reachable. Status: {r.status_code}")
-except Exception as e:
-    log(f"Step 5 FAILED: Server not reachable: {e}")
-    log("WARNING: Will keep trying in main loop...")
 
 # main loop of worker
-log("Step 6: Entering main loop...")
+log("Step 4: Entering main loop...")
 loop_count = 0
 
 while not os.path.exists(STOP_FILE):
