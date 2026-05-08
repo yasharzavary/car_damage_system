@@ -61,3 +61,8 @@ cmake-build-*/
 
 # project backups
 Project Backups/
+
+
+
+# temp files
+temp.py
