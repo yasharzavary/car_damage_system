@@ -7,6 +7,7 @@ NEW_IMAGE_FLAG = r"E:\files\my projects\car_damage_system\data\detect_car_new_im
 LOG_FILE       = r"E:\files\my projects\car_damage_system\data\detect_car_worker_log.txt"
 IMAGES_FOLDER  = r"E:\files\my projects\car_damage_system\incoming"
 PLATE_NUMBER_RESULT = r"E:\files\my projects\car_damage_system\data\detect_car_worker_plate_number.txt"
+
 # check file writing
 try:
     with open(LOG_FILE, "w") as f:
@@ -27,6 +28,7 @@ log("Step 1 OK: Logging works.")
 
 
 log("Step 2: Importing glob...")
+
 try:
     import glob
     log("Step 2 OK: glob imported.")
