@@ -7,6 +7,7 @@ NEW_IMAGE_FLAG = r"E:\files\my projects\car_damage_system\data\new_image.flag"
 LOG_FILE       = r"E:\files\my projects\car_damage_system\data\worker_log.txt"
 IMAGES_FOLDER  = r"E:\files\my projects\car_damage_system\data\images"
 PLATE_NUMBER_RESULT = r"E:\files\my projects\car_damage_system\data\detect_car_worker_plate_number.txt"
+INC_IMAGES_FOLDER  = r"E:\files\my projects\car_damage_system\incoming"
 SERVER_URL     = "http://127.0.0.1:5000/predict"
 
 # check file writing
@@ -68,6 +69,33 @@ except Exception as e:
 log("Step 6: Entering main loop...")
 loop_count = 0
 
+def read_images(path):
+    images = []
+    for t in ["*.png", "*.jpg", "*.jpeg"]:
+        images += glob.glob(os.path.join(path, t))
+
+    log(f"{path} Images found: {len(images)}")
+    return images
+
+def img_proc(images):   
+    details = dict()
+    for place in ['rear', 'front']:
+        image_path = [imgpth for imgpth in images if place in imgpth][0]
+        log(f'{image_path}')
+        log(f"Processing: {os.path.basename(image_path)}")
+
+        with open(image_path, "rb") as f:
+            response = requests.post(
+                SERVER_URL,
+                files={"image": f},
+                timeout=5
+            )
+        result = response.json()["result"]
+        log(f"Result: {result}")
+        details[place] = result
+    return details
+        
+
 while not os.path.exists(STOP_FILE):
     loop_count += 1
 
@@ -82,11 +110,8 @@ while not os.path.exists(STOP_FILE):
         log("Flag removed. Looking for images...")
 
         try:
-            images = []
-            for t in ["*.png", "*.jpg", "*.jpeg"]:
-                images += glob.glob(os.path.join(IMAGES_FOLDER, t))
-
-            log(f"Images found: {len(images)}")
+            images = read_images(IMAGES_FOLDER)
+            income = read_images(INC_IMAGES_FOLDER)
 
             if not images:
                 log(f"ERROR: No images in {IMAGES_FOLDER}")
@@ -95,23 +120,24 @@ while not os.path.exists(STOP_FILE):
                     f.write("No Image Found")
             else:
                 # detect front and rear damage
-                for place in ['rear', 'front']:
-                    image_path = [imgpth for imgpth in images if place in imgpth][0]
-                    log(f'{image_path}')
-                    log(f"Processing: {os.path.basename(image_path)}")
+                saved = img_proc(images)
+                income = img_proc(income)
+                result = ''
+                if saved['rear'] != income['rear']:
+                    result += income['rear']
+                else:
+                    result += 'Rear Normal'
+                
+                result += '\n'
 
-                    with open(image_path, "rb") as f:
-                        response = requests.post(
-                            SERVER_URL,
-                            files={"image": f},
-                            timeout=5
-                        )
-                    result = response.json()["result"]
-                    log(f"Result: {result}")
+                if saved['front'] != income['front']:
+                    result += income['front']
+                else:
+                    result += 'Front Normal'
 
-                    with open(RESULT_FILE, "w") as f:
-                        f.write(result)
-                    log("Result written OK.")
+                with open(RESULT_FILE, "w") as f:
+                    f.write(result)
+                log("Result written OK.")
         # error handlers
         except requests.exceptions.ConnectionError:
             log("ERROR: Inference server not running!")
